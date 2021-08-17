@@ -1,0 +1,27 @@
+{
+  "name": "oro-php-locutus",
+  "version": "1.0.0",
+  "description": "Custom fork of a few Locutus functions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "php",
+    "locutus"
+  ],
+  "author": "Carlos Oropesa <carlos@oropensando.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oropesa/oro-php-locutus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oropesa/oro-php-locutus/issues"
+  },
+  "homepage": "https://github.com/oropesa/oro-php-locutus#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
