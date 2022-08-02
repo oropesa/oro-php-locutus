@@ -689,6 +689,10 @@ function utf8Decode( strData ) {
     //   example 1: utf8_decode('Kevin van Zonneveld')
     //   returns 1: 'Kevin van Zonneveld'
 
+    if( strData === null || typeof strData === 'undefined' ) {
+        return ''
+    }
+
     const tmpArr = []
     let i = 0
     let c1 = 0

@@ -1,3 +1,8 @@
+## 1.1.0 / 2022-08-02
+* Updated _Readme_ and `tests/`.
+* Added `package-lock.json`.
+* Updated lib-dev `jest` to `v28.1.3`.
+
 ## 1.0.0 / 2021-08-17
 * Added `MIT License`.
 * Added _package_ in `github.com` & `npmjs.com`.
