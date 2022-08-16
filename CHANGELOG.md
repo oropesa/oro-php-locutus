@@ -1,3 +1,6 @@
+## 1.1.1 / 2022-08-16
+* Updated _php function_ `unserialize`.
+
 ## 1.1.0 / 2022-08-02
 * Updated _Readme_ and `tests/`.
 * Added `package-lock.json`.
