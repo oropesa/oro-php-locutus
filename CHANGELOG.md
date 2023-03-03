@@ -1,3 +1,7 @@
+## 1.2.0 / 2023-03-03
+* Added `Typescript`.
+* Updated lib-dev `jest` to `v29.4.3`.
+
 ## 1.1.1 / 2022-08-16
 * Updated _php function_ `unserialize`.
 
