@@ -1,8 +1,8 @@
-const { serialize, unserialize, htmlspecialchars, md5, utf8Encode, utf8Decode } = require( '../index' );
+import { serialize, unserialize, htmlspecialchars, md5, utf8Encode, utf8Decode } from '../index';
 
 describe( 'serialize', () => {
     test( 'serialize( undefined )', () => {
-        expect( serialize() ).toBe( 'N;' )
+        expect( serialize( undefined ) ).toBe( 'N;' )
     } );
     test( 'serialize( int )', () => {
         expect( serialize( 17 ) ).toBe( 'i:17;' )
@@ -27,7 +27,7 @@ describe( 'serialize', () => {
 
 describe( 'unserialize', () => {
     test( 'unserialize( undefined )', () => {
-        expect( unserialize() ).toBe( undefined )
+        expect( unserialize( undefined ) ).toBe( undefined )
     } );
     test( 'unserialize( int )', () => {
         expect( unserialize( 17 ) ).toBe( 17 )
@@ -76,22 +76,10 @@ describe( 'unserialize', () => {
 
 describe( 'htmlspecialchars', () => {
     test( 'htmlspecialchars( undefined )', () => {
-        expect( htmlspecialchars() ).toBe( '' )
-    } );
-    test( 'htmlspecialchars( int )', () => {
-        expect( htmlspecialchars( 17 ) ).toBe( '17' )
+        expect( htmlspecialchars( undefined ) ).toBe( '' )
     } );
     test( 'htmlspecialchars( str )', () => {
         expect( htmlspecialchars( 'chacho' ) ).toBe( 'chacho' )
-    } );
-    test( 'htmlspecialchars( bool )', () => {
-        expect( htmlspecialchars( true ) ).toBe( 'true' )
-    } );
-    test( 'htmlspecialchars( arr )', () => {
-        expect( htmlspecialchars( [ 1, 2, 3 ] ) ).toBe( '1,2,3' )
-    } );
-    test( 'htmlspecialchars( obj )', () => {
-        expect( htmlspecialchars( { chacho: true, tio: 17 } ) ).toBe( '[object Object]' )
     } );
 
     test( 'htmlspecialchars( html )', () => {
@@ -122,22 +110,10 @@ describe( 'htmlspecialchars', () => {
 
 describe( 'utf8Encode', () => {
     test( 'utf8Encode( undefined )', () => {
-        expect( utf8Encode() ).toBe( '' )
-    } );
-    test( 'utf8Encode( int )', () => {
-        expect( utf8Encode( 17 ) ).toBe( '17' )
+        expect( utf8Encode( undefined ) ).toBe( '' )
     } );
     test( 'utf8Encode( str )', () => {
         expect( utf8Encode( 'chacho' ) ).toBe( 'chacho' )
-    } );
-    test( 'utf8Encode( bool )', () => {
-        expect( utf8Encode( true ) ).toBe( 'true' )
-    } );
-    test( 'utf8Encode( arr )', () => {
-        expect( utf8Encode( [ 1, 2, 3 ] ) ).toBe( '1,2,3' )
-    } );
-    test( 'utf8Encode( obj )', () => {
-        expect( utf8Encode( { chacho: true, tio: 17 } ) ).toBe( '[object Object]' )
     } );
     test( 'utf8Encode( spanish )', () => {
         expect( utf8Encode( 'cañón' ) ).toBe( 'caÃ±Ã³n' )
@@ -146,22 +122,10 @@ describe( 'utf8Encode', () => {
 
 describe( 'utf8Decode', () => {
     test( 'utf8Decode( undefined )', () => {
-        expect( utf8Decode() ).toBe( '' )
-    } );
-    test( 'utf8Decode( int )', () => {
-        expect( utf8Decode( 17 ) ).toBe( '17' )
+        expect( utf8Decode( undefined ) ).toBe( '' )
     } );
     test( 'utf8Decode( str )', () => {
         expect( utf8Decode( 'chacho' ) ).toBe( 'chacho' )
-    } );
-    test( 'utf8Decode( bool )', () => {
-        expect( utf8Decode( true ) ).toBe( 'true' )
-    } );
-    test( 'utf8Decode( arr )', () => {
-        expect( utf8Decode( [ 1, 2, 3 ] ) ).toBe( '1,2,3' )
-    } );
-    test( 'utf8Decode( obj )', () => {
-        expect( utf8Decode( { chacho: true, tio: 17 } ) ).toBe( '[object Object]' )
     } );
     test( 'utf8Decode( spanish )', () => {
         expect( utf8Decode( 'caÃ±Ã³n' ) ).toBe( 'cañón' )
@@ -170,7 +134,7 @@ describe( 'utf8Decode', () => {
 
 describe( 'fn: md5', () => {
     test( 'fn: md5( undefined )', () => {
-        expect( md5() ).toBe( '' );
+        expect( md5( undefined ) ).toBe( '' );
     } );
     test( 'fn: md5( null )', () => {
         expect( md5( null ) ).toBe( '' );

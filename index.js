@@ -594,7 +594,7 @@ function htmlspecialchars( string, quoteStyle, charset, doubleEncode ) {
     return string
 }
 
-function utf8Encode( argString ) {
+function utf8Encode( str ) {
     // eslint-disable-line camelcase
     //  discuss at: https://locutus.io/php/utf8_encode/
     // original by: Webtoolkit.info (https://www.webtoolkit.info/)
@@ -611,6 +611,7 @@ function utf8Encode( argString ) {
     //   example 1: utf8_encode('Kevin van Zonneveld')
     //   returns 1: 'Kevin van Zonneveld'
 
+    const argString = str;
     if( argString === null || typeof argString === 'undefined' ) {
         return ''
     }
@@ -671,7 +672,7 @@ function utf8Encode( argString ) {
     return utftext
 }
 
-function utf8Decode( strData ) {
+function utf8Decode( str ) {
     // eslint-disable-line camelcase
     //  discuss at: https://locutus.io/php/utf8_decode/
     // original by: Webtoolkit.info (https://www.webtoolkit.info/)
@@ -687,6 +688,7 @@ function utf8Decode( strData ) {
     //   example 1: utf8_decode('Kevin van Zonneveld')
     //   returns 1: 'Kevin van Zonneveld'
 
+    let strData = str;
     if( strData === null || typeof strData === 'undefined' ) {
         return ''
     }

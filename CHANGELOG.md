@@ -1,3 +1,10 @@
+## 1.3.0 / 2023-05-11
+* Added _ts tests_.
+* Improved _tests_.
+* Improved _readme_.
+* Updated lib-dev `jest` to `v29.5.0`.
+* Updated `index.d.ts` adding `export type ENT_OPTION`.
+
 ## 1.2.0 / 2023-03-03
 * Added `Typescript`.
 * Updated lib-dev `jest` to `v29.4.3`.
