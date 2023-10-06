@@ -16,6 +16,8 @@
 
 Locutus is a huge library created by a community effort, so instead of downloading all their code, this is just a piece of it.
 
+This package is a fork of few Locutus functions that have been rewritten in TypeScript.
+
 These functions have no dependencies and are _browser friendly_.
 
 ## Installation
@@ -35,9 +37,9 @@ Here's what [Locutus JavaScript](https://github.com/locutusjs/locutus/blob/maste
 equivalent to [PHP's serialize](https://www.php.net/manual/en/function.serialize.php) looks like.
 
 ```js
-// js
+// cjs
 const { serialize } = require( 'oro-php-locutus' );
-// ts
+// mjs, ts
 import { serialize } from 'oro-php-locutus';
 
 serialize( { chacho: true, tio: 17 } );
@@ -56,9 +58,9 @@ Here's what [Locutus JavaScript](https://github.com/locutusjs/locutus/blob/maste
 equivalent to [PHP's unserialize](https://www.php.net/manual/en/function.unserialize.php) looks like.
 
 ```js
-// js
+// cjs
 const { unserialize } = require( 'oro-php-locutus' );
-// ts
+// mjs, ts
 import { unserialize } from 'oro-php-locutus';
 
 unserialize( 'a:2:{s:6:"chacho";b:1;s:3:"tio";i:17;}' );
@@ -108,9 +110,9 @@ Here's what [Locutus JavaScript](https://github.com/locutusjs/locutus/blob/maste
 equivalent to [PHP's unserialize](https://www.php.net/manual/en/function.utf8-encode.php) looks like.
 
 ```js
-// js
+// cjs
 const { utf8Encode } = require( 'oro-php-locutus' );
-// ts
+// mjs, ts
 import { utf8Encode } from 'oro-php-locutus';
 
 utf8Encode( 'Chacho' );
@@ -129,9 +131,9 @@ Here's what [Locutus JavaScript](https://github.com/locutusjs/locutus/blob/maste
 equivalent to [PHP's unserialize](https://www.php.net/manual/en/function.utf8-decode.php) looks like.
 
 ```js
-// js
+// cjs
 const { utf8Decode } = require( 'oro-php-locutus' );
-// ts
+// mjs, ts
 import { utf8Decode } from 'oro-php-locutus';
 
 utf8Decode( 'Chacho' );
@@ -150,9 +152,9 @@ Here's what [Locutus JavaScript](https://github.com/locutusjs/locutus/blob/maste
 equivalent to [PHP's unserialize](https://www.php.net/manual/en/function.md5.php) looks like.
 
 ```js
-// js
+// cjs
 const { md5 } = require( 'oro-php-locutus' );
-// ts
+// mjs, ts
 import { md5 } from 'oro-php-locutus';
 
 md5( 'chacho' );
