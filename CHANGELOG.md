@@ -1,3 +1,22 @@
+## 2.0.0 / 2023-10-06
+* Refactored `*.js` to `src/*.ts`.
+* Updated _package_ as `type: "module"`.
+* Added `tsup` and now _package_ is compiled to `cjs` _(common)_ and `mjs` _(module)_.
+* Added _github actions_:
+    * `validate_pr_to_master`
+    * `npm_publish_on_pr_merge_to_master`.
+* Added `husky` (to ensure only valid commits).
+* Added `eslint` (and applied it).
+* Added `prettier` (and applied it).
+* Updated _package description_
+* Updated _dev_ libs:
+    * `@babel/core` to `v7.23.0`.
+    * `@babel/preset-env` to `v7.22.20`.
+    * `@babel/preset-typescript` to `v7.23.0`.
+    * `@types/jest` to `v29.5.5`.
+    * `babel-jest` to `v29.7.0`.
+    * `jest` to `v29.7.0`.
+
 ## 1.3.0 / 2023-05-11
 * Added _ts tests_.
 * Improved _tests_.

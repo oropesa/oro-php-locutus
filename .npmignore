@@ -1,4 +1,13 @@
-.idea/*
+.github/
+.husky/
+.idea/
+src/
+tests/
+
+.eslintrc.yaml
 .gitignore
-*.test.js
+.prettierignore
+.prettierrc.yaml
+babel.config.cjs
+tsconfig.json
 tmp.js
