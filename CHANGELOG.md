@@ -1,3 +1,13 @@
+## 2.0.1 / 2023-10-24
+* Updated _dev_ libs:
+  * `@babel/core` from `v7.23.0` to `v7.23.2`.
+  * `@babel/preset-env` from `v7.22.20` to `v7.23.2`.
+  * `@babel/preset-typescript` from `v7.23.0` to `v7.23.2`.
+  * `@types/jest` from `v29.5.5` to `v29.5.6`.
+  * `@typescript-eslint/eslint-plugin` from `v6.7.4` to `v6.9.0`.
+  * `@typescript-eslint/parser` from `v6.7.4` to `v6.9.0`.
+  * `eslint` from `v8.50.0` to `v8.52.0`.
+
 ## 2.0.0 / 2023-10-06
 * Refactored `*.js` to `src/*.ts`.
 * Updated _package_ as `type: "module"`.
