@@ -1,3 +1,17 @@
+## 2.0.2 / 2023-10-24
+* Fixed _github action_ `npm_publish_on_pr_merge_to_master`.
+* Updated _dev_ libs:
+  * `@babel/core` from `v7.23.2` to `v7.23.3`.
+  * `@babel/preset-env` from `v7.23.2` to `v7.23.3`.
+  * `@babel/preset-typescript` from `v7.23.2` to `v7.23.3`.
+  * `@types/jest` from `v29.5.6` to `v29.5.10`.
+  * `@typescript-eslint/eslint-plugin` from `v6.9.0` to `v6.12.0`.
+  * `@typescript-eslint/parser` from `v6.9.0` to `v6.12.0`.
+  * `eslint` from `v8.52.0` to `v8.54.0`.
+  * `eslint-plugin-unicorn` from `v48.0.1` to `v49.0.0`.
+  * `prettier` from `v3.0.3` to `v3.1.0`.
+  * `tsup` from `v7.2.0` to `v8.0.1`.
+  
 ## 2.0.1 / 2023-10-24
 * Updated _dev_ libs:
   * `@babel/core` from `v7.23.0` to `v7.23.2`.
