@@ -113,7 +113,7 @@ export function serialize(mixedValue: any) {
       */
 
       for (key in mixedValue) {
-        if (mixedValue.hasOwnProperty(key)) {
+        if (Object.prototype.hasOwnProperty.call(mixedValue, key)) {
           ktype = _getType(mixedValue[key]);
           if (ktype === 'function') {
             continue;
