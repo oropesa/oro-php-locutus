@@ -3,12 +3,6 @@
 * [Overview](#overview)
 * [Installation](#installation)
 * [Methods](#methods)
-  * [serialize()](#serialize)
-  * [unserialize()](#unserialize)
-  * [htmlspecialchars()](#htmlspecialchars)
-  * [utf8Encode()](#utf8encode)
-  * [utf8Decode()](#utf8decode)
-  * [md5()](#md5)
 
 ## Overview
 
@@ -27,6 +21,17 @@ npm install oro-php-locutus
 ```
 
 ## Methods
+
+<hr>
+
+* [serialize()](#serialize)
+* [unserialize()](#unserialize)
+* [htmlspecialchars()](#htmlspecialchars)
+* [utf8Encode()](#utf8encode)
+* [utf8Decode()](#utf8decode)
+* [md5()](#md5)
+
+<hr>
 
 ### serialize()
 ```ts
@@ -49,6 +54,8 @@ serialize( [ 'chacho', '', true, false, 1, 2.3 ] );
 // 'a:6:{i:0;s:6:"chacho";i:1;s:0:"";i:2;b:1;i:3;b:0;i:4;i:1;i:5;d:2.3;}'
 ```
 
+<hr>
+
 ### unserialize()
 ```ts
 unserialize( str: string ): string
@@ -69,6 +76,8 @@ unserialize( 'a:2:{s:6:"chacho";b:1;s:3:"tio";i:17;}' );
 unserialize( 'a:6:{i:0;s:6:"chacho";i:1;s:0:"";i:2;b:1;i:3;b:0;i:4;i:1;i:5;d:2.3;}' );
 // [ 'chacho', '', true, false, 1, 2.3 ]
 ```
+
+<hr>
 
 ### htmlspecialchars()
 ```ts
@@ -101,6 +110,8 @@ htmlspecialchars( '<a href="test">Test</a>', 'ENT_QUOTES' );
 // '&amp;lt;a href=&amp;quot;test&amp;quot;&amp;gt;Test&amp;lt;/a&amp;gt;'
 ```
 
+<hr>
+
 ### utf8Encode()
 ```ts
 utf8Encode( str: string ): string
@@ -122,6 +133,8 @@ utf8Encode( 'cañón' );
 // 'caÃ±Ã³n'
 ```
 
+<hr>
+
 ### utf8Decode()
 ```ts
 utf8Decode( str: string ): string
@@ -142,6 +155,8 @@ utf8Decode( 'Chacho' );
 utf8Decode( 'caÃ±Ã³n' );
 // 'cañón'
 ```
+
+<hr>
 
 ### md5()
 ```ts

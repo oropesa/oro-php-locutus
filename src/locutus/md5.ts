@@ -23,7 +23,7 @@ export function md5(string: string) {
 
   let hash;
   try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module
+    // eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module,@typescript-eslint/no-var-requires
     const crypto = require('node:crypto');
     const md5sum = crypto.createHash('md5');
     md5sum.update(string);
@@ -36,8 +36,6 @@ export function md5(string: string) {
     return hash;
   }
 
-  let xl;
-
   // eslint-disable-next-line unicorn/consistent-function-scoping
   const _rotateLeft = function (lValue: number, indexShiftBits: number) {
     return (lValue << indexShiftBits) | (lValue >>> (32 - indexShiftBits));
@@ -45,16 +43,11 @@ export function md5(string: string) {
 
   // eslint-disable-next-line unicorn/consistent-function-scoping
   const _addUnsigned = function (lX: number, lY: number) {
-    let lX4;
-    let lY4;
-    let lX8;
-    let lY8;
-    let lResult;
-    lX8 = lX & 0x80_00_00_00;
-    lY8 = lY & 0x80_00_00_00;
-    lX4 = lX & 0x40_00_00_00;
-    lY4 = lY & 0x40_00_00_00;
-    lResult = (lX & 0x3f_ff_ff_ff) + (lY & 0x3f_ff_ff_ff);
+    const lX8 = lX & 0x80_00_00_00;
+    const lY8 = lY & 0x80_00_00_00;
+    const lX4 = lX & 0x40_00_00_00;
+    const lY4 = lY & 0x40_00_00_00;
+    const lResult = (lX & 0x3f_ff_ff_ff) + (lY & 0x3f_ff_ff_ff);
     if (lX4 & lY4) {
       return lResult ^ 0x80_00_00_00 ^ lX8 ^ lY8;
     }
@@ -182,7 +175,6 @@ export function md5(string: string) {
     return wordToHexValue;
   };
 
-  let x;
   let k;
   let AA;
   let BB;
@@ -210,13 +202,13 @@ export function md5(string: string) {
   const S44 = 21;
 
   string = utf8Encode(string);
-  x = _convertToWordArray(string);
+  const x = _convertToWordArray(string);
   a = 0x67_45_23_01;
   b = 0xef_cd_ab_89;
   c = 0x98_ba_dc_fe;
   d = 0x10_32_54_76;
 
-  xl = x.length;
+  const xl = x.length;
   for (k = 0; k < xl; k += 16) {
     AA = a;
     BB = b;

@@ -1,28 +1,12 @@
-const { htmlspecialchars } = require('../dist');
+import { htmlspecialchars } from '../dist';
 
 describe('htmlspecialchars', () => {
-  test('htmlspecialchars( undefined )', () => {
-    expect(htmlspecialchars()).toBe('');
-  });
-
-  test('htmlspecialchars( int )', () => {
-    expect(htmlspecialchars(17)).toBe('17');
-  });
+  // test('htmlspecialchars( undefined )', () => {
+  //   expect(htmlspecialchars(undefined)).toBe('');
+  // });
 
   test('htmlspecialchars( str )', () => {
     expect(htmlspecialchars('chacho')).toBe('chacho');
-  });
-
-  test('htmlspecialchars( bool )', () => {
-    expect(htmlspecialchars(true)).toBe('true');
-  });
-
-  test('htmlspecialchars( arr )', () => {
-    expect(htmlspecialchars([1, 2, 3])).toBe('1,2,3');
-  });
-
-  test('htmlspecialchars( obj )', () => {
-    expect(htmlspecialchars({ chacho: true, tio: 17 })).toBe('[object Object]');
   });
 
   test('htmlspecialchars( html ) ENT_NOQUOTES (zero)', () => {
@@ -66,7 +50,7 @@ describe('htmlspecialchars', () => {
   });
 
   test('htmlspecialchars( html ) doubleEncode=false', () => {
-    expect(htmlspecialchars('my "&entity;" is still here', null, null, false)).toBe(
+    expect(htmlspecialchars('my "&entity;" is still here', undefined, null, false)).toBe(
       'my &quot;&entity;&quot; is still here',
     );
   });

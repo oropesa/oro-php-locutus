@@ -27,10 +27,9 @@ export function utf8Encode(string: string) {
   let utftext = '';
   let start;
   let end;
-  let stringl = 0;
+  const stringl = strData.length;
 
   start = end = 0;
-  stringl = strData.length;
   for (let n = 0; n < stringl; n++) {
     let c1 = strData.charCodeAt(n);
     let enc = null;
