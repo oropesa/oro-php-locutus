@@ -1,12 +1,6 @@
-import { md5 } from '../dist';
+import { md5 } from './';
 
 describe('fn: md5', () => {
-  // test('fn: md5( undefined )', () => {
-  //   expect(md5(undefined)).toBe('');
-  // });
-  // test('fn: md5( null )', () => {
-  //   expect(md5(null)).toBe('');
-  // });
   test('fn: md5( str empty )', () => {
     expect(md5('')).toBe('d41d8cd98f00b204e9800998ecf8427e');
   });

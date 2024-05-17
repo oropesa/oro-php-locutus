@@ -1,15 +1,8 @@
-import { unserialize } from '../dist';
+import { unserialize } from './';
 
 const error = jest.spyOn(console, 'error').mockImplementation(() => {});
 
 describe('unserialize', () => {
-  // test('unserialize( undefined )', () => {
-  //   expect(unserialize(undefined)).toBe(undefined);
-  // });
-  // test('unserialize( int )', () => {
-  //   expect(unserialize(17)).toBe(17);
-  // });
-
   test('unserialize( str )', () => {
     expect(unserialize('chacho')).toBe('chacho');
   });

@@ -1,7 +1,7 @@
-import { utf8Encode } from './utf8-encode';
+import { utf8Encode } from '../utf8-encode/utf8-encode';
 
 // @see: https://github.com/locutusjs/locutus/blob/master/src/php/strings/md5.js
-//       Latest commit 0dbbcfc on 19 Nov 2020
+//       Latest commit 5080992 on 04 Apr 2024
 
 export function md5(string: string) {
   //  discuss at: https://locutus.io/php/md5/
