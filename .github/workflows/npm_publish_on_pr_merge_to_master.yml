@@ -23,10 +23,10 @@ jobs:
     if: needs.branch_master.outputs.MASTER_IS_MERGED == 'true'
     steps:
       - name: "Checkout Code"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: "Install Node.js and jq"
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -47,7 +47,7 @@ jobs:
       PROJECT_VERSION: ${{needs.project_version.outputs.PROJECT_VERSION}}
     steps:
       - name: "Checkout Code"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: "Create and Push Tag"
         env:
@@ -63,10 +63,10 @@ jobs:
     needs: tag
     steps:
       - name: "Checkout Code"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: "Install Node.js"
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -89,10 +89,10 @@ jobs:
     needs: release
     steps:
       - name: "Checkout Code"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: "Install Node.js"
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 

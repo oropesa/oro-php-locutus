@@ -1,5 +1,5 @@
 // @see: https://github.com/locutusjs/locutus/blob/master/src/php/xml/utf8_encode.js
-//       Latest commit 0dbbcfc on 19 Nov 2020
+//       Latest commit 7c27a23 on 04 Apr 2024
 
 export function utf8Encode(string: string) {
   // eslint-disable-line camelcase
@@ -50,12 +50,7 @@ export function utf8Encode(string: string) {
         throw new RangeError('Unmatched lead surrogate at ' + (n - 1));
       }
       c1 = ((c1 & 0x3_ff) << 10) + (c2 & 0x3_ff) + 0x1_00_00;
-      enc = String.fromCharCode(
-        (c1 >> 18) | 240,
-        ((c1 >> 12) & 63) | 128,
-        ((c1 >> 6) & 63) | 128,
-        (c1 & 63) | 128,
-      );
+      enc = String.fromCharCode((c1 >> 18) | 240, ((c1 >> 12) & 63) | 128, ((c1 >> 6) & 63) | 128, (c1 & 63) | 128);
     }
     if (enc !== null) {
       if (end > start) {

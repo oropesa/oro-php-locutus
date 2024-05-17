@@ -1,4 +1,4 @@
-const { md5 } = require('../dist');
+const { md5 } = require('./');
 
 describe('fn: md5', () => {
   test('fn: md5( undefined )', () => {

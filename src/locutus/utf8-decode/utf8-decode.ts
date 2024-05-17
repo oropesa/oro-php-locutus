@@ -1,5 +1,5 @@
 // @see: https://github.com/locutusjs/locutus/blob/master/src/php/xml/utf8_decode.js
-//       Latest commit 0dbbcfc on 19 Nov 2020
+//       Latest commit 7c27a23 on 04 Apr 2024
 
 export function utf8Decode(string: string) {
   // eslint-disable-line camelcase
@@ -54,10 +54,7 @@ export function utf8Decode(string: string) {
 
     if (seqlen === 4) {
       c1 -= 0x1_00_00;
-      tmpArr.push(
-        String.fromCharCode(0xd8_00 | ((c1 >> 10) & 0x3_ff)),
-        String.fromCharCode(0xdc_00 | (c1 & 0x3_ff)),
-      );
+      tmpArr.push(String.fromCharCode(0xd8_00 | ((c1 >> 10) & 0x3_ff)), String.fromCharCode(0xdc_00 | (c1 & 0x3_ff)));
     } else {
       tmpArr.push(String.fromCharCode(c1));
     }

@@ -1,5 +1,5 @@
 // @see: https://github.com/locutusjs/locutus/blob/master/src/php/strings/htmlspecialchars.js
-//       Latest commit 0dbbcfc on 19 Nov 2020
+//       Latest commit 5080992 on 04 Apr 2024
 
 type ENT_OPTION_STRING =
   | 'ENT_NOQUOTES'

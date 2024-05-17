@@ -1,5 +1,5 @@
 // @see: https://github.com/locutusjs/locutus/blob/master/src/php/var/unserialize.js
-//       Latest commit aa27514 15 Aug 2022
+//       Latest commit 5080992 04 Apr 2024
 
 export function unserialize(string: string, showError = false): any {
   //       discuss at: https://locutus.io/php/unserialize/
@@ -160,11 +160,7 @@ function expectFloat(string: string): [number, number] {
   return [floatValue, match!.length];
 }
 
-function readBytes(
-  string: string,
-  length: number,
-  escapedString = false,
-): [string, number, number] {
+function readBytes(string: string, length: number, escapedString = false): [string, number, number] {
   let bytes = 0;
   let out = '';
   let c = 0;
@@ -195,11 +191,11 @@ function readBytes(
           // if low surrogate preceded by high surrogate, add 2 bytes
           2
         : code > 0x7_ff
-        ? // otherwise low surrogate falls into this part
-          3
-        : code > 0x7f
-        ? 2
-        : 1;
+          ? // otherwise low surrogate falls into this part
+            3
+          : code > 0x7f
+            ? 2
+            : 1;
 
     // if high surrogate is not followed by low surrogate, add 1 more byte
     bytes += wasHighSurrogate && !isLowSurrogate ? 1 : 0;
@@ -381,8 +377,7 @@ function expectArrayItems(string: string, expectedItems = 0, cache: any): [objec
   for (let index = 0; index < expectedItems; index++) {
     key = expectKeyOrIndex(string);
 
-    hasContinousIndexes =
-      hasContinousIndexes && typeof key[0] === 'number' && key[0] === lastIndex + 1;
+    hasContinousIndexes = hasContinousIndexes && typeof key[0] === 'number' && key[0] === lastIndex + 1;
     lastIndex = key[0] as number;
 
     string = string.slice(key[1]);
