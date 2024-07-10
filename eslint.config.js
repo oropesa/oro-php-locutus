@@ -1,4 +1,5 @@
 import {
+  DEFAULT_IGNORES,
   setEslintLanguageOptionsBrowser,
   setEslintPluginJest,
   setEslintPluginPrettier,
@@ -6,17 +7,15 @@ import {
   setEslintPluginUnicorn,
 } from './eslint.config.utils.js';
 
-const ignores = ['coverage/*', 'dist/*', 'tmp.js', '**/*.test.js', '**/*.cjs'];
-
 const allowList = ['tmp', 'optTemp', 'strData', 'tmpArr'];
 
 export default [
+  { ignores: DEFAULT_IGNORES },
   setEslintLanguageOptionsBrowser(),
-  setEslintPluginUnicorn({ ignores, allowList }),
-  setEslintPluginJest({ ignores }),
-  setEslintPluginPrettier({ ignores }),
+  setEslintPluginUnicorn({ allowList }),
+  setEslintPluginJest(),
+  setEslintPluginPrettier(),
   ...setEslintPluginTypescripEslint({
-    ignores,
     rules: {
       'no-empty': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
