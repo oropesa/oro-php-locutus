@@ -2,7 +2,6 @@
 //       Latest commit 7c27a23 on 04 Apr 2024
 
 export function utf8Decode(string: string) {
-  // eslint-disable-line camelcase
   //  discuss at: https://locutus.io/php/utf8_decode/
   // original by: Webtoolkit.info (https://www.webtoolkit.info/)
   //    input by: Aman Gupta

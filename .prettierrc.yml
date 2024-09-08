@@ -5,8 +5,8 @@ printWidth: 120
 tabWidth: 2
 semi: true
 singleQuote: true
-trailingComma: "all"
-endOfLine: "lf"
+trailingComma: 'all'
+endOfLine: 'lf'
 
 importOrder:
   - '^[@]*[a-z0-9](.*)$'

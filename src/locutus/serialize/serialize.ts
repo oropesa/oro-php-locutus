@@ -34,7 +34,6 @@ export function serialize(mixedValue: any) {
   let vals = '';
   let count = 0;
 
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   const _utf8Size = function (string: string) {
     return ~-encodeURI(string).split(/%..|./).length;
   };
@@ -51,7 +50,6 @@ export function serialize(mixedValue: any) {
     | 'array'
     | 'null';
 
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   const _getType = function (input: any): GetType {
     let match;
     let key;

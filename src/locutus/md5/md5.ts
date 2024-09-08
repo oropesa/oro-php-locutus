@@ -1,4 +1,4 @@
-import { utf8Encode } from '../utf8-encode/utf8-encode';
+import { utf8Encode } from '../utf8-encode';
 
 // @see: https://github.com/locutusjs/locutus/blob/master/src/php/strings/md5.js
 //       Latest commit 5080992 on 04 Apr 2024
@@ -23,7 +23,7 @@ export function md5(string: string) {
 
   let hash;
   try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module,@typescript-eslint/no-var-requires
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const crypto = require('node:crypto');
     const md5sum = crypto.createHash('md5');
     md5sum.update(string);
@@ -36,12 +36,10 @@ export function md5(string: string) {
     return hash;
   }
 
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   const _rotateLeft = function (lValue: number, indexShiftBits: number) {
     return (lValue << indexShiftBits) | (lValue >>> (32 - indexShiftBits));
   };
 
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   const _addUnsigned = function (lX: number, lY: number) {
     const lX8 = lX & 0x80_00_00_00;
     const lY8 = lY & 0x80_00_00_00;
@@ -52,94 +50,54 @@ export function md5(string: string) {
       return lResult ^ 0x80_00_00_00 ^ lX8 ^ lY8;
     }
     if (lX4 | lY4) {
-      return lResult & 0x40_00_00_00
-        ? lResult ^ 0xc0_00_00_00 ^ lX8 ^ lY8
-        : lResult ^ 0x40_00_00_00 ^ lX8 ^ lY8;
+      return lResult & 0x40_00_00_00 ? lResult ^ 0xc0_00_00_00 ^ lX8 ^ lY8 : lResult ^ 0x40_00_00_00 ^ lX8 ^ lY8;
     } else {
       return lResult ^ lX8 ^ lY8;
     }
   };
 
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   const _F = function (x: number, y: number, z: number) {
     return (x & y) | (~x & z);
   };
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   const _G = function (x: number, y: number, z: number) {
     return (x & z) | (y & ~z);
   };
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   const _H = function (x: number, y: number, z: number) {
     return x ^ y ^ z;
   };
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   const _I = function (x: number, y: number, z: number) {
     return y ^ (x | ~z);
   };
 
   // eslint-disable-next-line max-params
-  const _FF = function (
-    a: number,
-    b: number,
-    c: number,
-    d: number,
-    x: number,
-    s: number,
-    ac: number,
-  ) {
+  const _FF = function (a: number, b: number, c: number, d: number, x: number, s: number, ac: number) {
     a = _addUnsigned(a, _addUnsigned(_addUnsigned(_F(b, c, d), x), ac));
     return _addUnsigned(_rotateLeft(a, s), b);
   };
 
   // eslint-disable-next-line max-params
-  const _GG = function (
-    a: number,
-    b: number,
-    c: number,
-    d: number,
-    x: number,
-    s: number,
-    ac: number,
-  ) {
+  const _GG = function (a: number, b: number, c: number, d: number, x: number, s: number, ac: number) {
     a = _addUnsigned(a, _addUnsigned(_addUnsigned(_G(b, c, d), x), ac));
     return _addUnsigned(_rotateLeft(a, s), b);
   };
 
   // eslint-disable-next-line max-params
-  const _HH = function (
-    a: number,
-    b: number,
-    c: number,
-    d: number,
-    x: number,
-    s: number,
-    ac: number,
-  ) {
+  const _HH = function (a: number, b: number, c: number, d: number, x: number, s: number, ac: number) {
     a = _addUnsigned(a, _addUnsigned(_addUnsigned(_H(b, c, d), x), ac));
     return _addUnsigned(_rotateLeft(a, s), b);
   };
 
   // eslint-disable-next-line max-params
-  const _II = function (
-    a: number,
-    b: number,
-    c: number,
-    d: number,
-    x: number,
-    s: number,
-    ac: number,
-  ) {
+  const _II = function (a: number, b: number, c: number, d: number, x: number, s: number, ac: number) {
     a = _addUnsigned(a, _addUnsigned(_addUnsigned(_I(b, c, d), x), ac));
     return _addUnsigned(_rotateLeft(a, s), b);
   };
 
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   const _convertToWordArray = function (string: string) {
     let lWordCount;
     const lMessageLength = string.length;
     const lNumberOfWordsTemporary1 = lMessageLength + 8;
-    const lNumberOfWordsTemporary2 =
-      (lNumberOfWordsTemporary1 - (lNumberOfWordsTemporary1 % 64)) / 64;
+    const lNumberOfWordsTemporary2 = (lNumberOfWordsTemporary1 - (lNumberOfWordsTemporary1 % 64)) / 64;
     const lNumberOfWords = (lNumberOfWordsTemporary2 + 1) * 16;
     const lWordArray: number[] = Array.from({ length: lNumberOfWords - 1 });
     let lBytePosition = 0;
@@ -147,8 +105,7 @@ export function md5(string: string) {
     while (lByteCount < lMessageLength) {
       lWordCount = (lByteCount - (lByteCount % 4)) / 4;
       lBytePosition = (lByteCount % 4) * 8;
-      lWordArray[lWordCount] =
-        lWordArray[lWordCount] | (string.charCodeAt(lByteCount) << lBytePosition);
+      lWordArray[lWordCount] = lWordArray[lWordCount] | (string.charCodeAt(lByteCount) << lBytePosition);
       lByteCount++;
     }
     lWordCount = (lByteCount - (lByteCount % 4)) / 4;
@@ -159,7 +116,6 @@ export function md5(string: string) {
     return lWordArray;
   };
 
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   const _wordToHex = function (lValue: number): string {
     let wordToHexValue = '';
     let wordToHexValueTemporary = '';
@@ -169,8 +125,7 @@ export function md5(string: string) {
     for (lCount = 0; lCount <= 3; lCount++) {
       lByte = (lValue >>> (lCount * 8)) & 255;
       wordToHexValueTemporary = '0' + lByte.toString(16);
-      wordToHexValue =
-        wordToHexValue + wordToHexValueTemporary.slice(-2, wordToHexValueTemporary.length - 2 + 2);
+      wordToHexValue = wordToHexValue + wordToHexValueTemporary.slice(-2, wordToHexValueTemporary.length - 2 + 2);
     }
     return wordToHexValue;
   };

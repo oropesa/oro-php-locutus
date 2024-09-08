@@ -44,9 +44,14 @@ describe('unserialize', () => {
   });
 
   test('unserialize( ser arr 2 )', () => {
-    expect(
-      unserialize('a:6:{i:0;s:6:"chacho";i:1;s:0:"";i:2;b:1;i:3;b:0;i:4;i:1;i:5;d:2.3;}'),
-    ).toEqual(['chacho', '', true, false, 1, 2.3]);
+    expect(unserialize('a:6:{i:0;s:6:"chacho";i:1;s:0:"";i:2;b:1;i:3;b:0;i:4;i:1;i:5;d:2.3;}')).toEqual([
+      'chacho',
+      '',
+      true,
+      false,
+      1,
+      2.3,
+    ]);
   });
 
   test('unserialize( ser reference )', () => {
@@ -169,9 +174,7 @@ describe('unserialize', () => {
   });
 
   test('unserialize( error php-obj type)', () => {
-    expect(unserialize('a:1:{s:6:"chacho";O:8:"chacho";}', true)).toBe(
-      'a:1:{s:6:"chacho";O:8:"chacho";}',
-    );
+    expect(unserialize('a:1:{s:6:"chacho";O:8:"chacho";}', true)).toBe('a:1:{s:6:"chacho";O:8:"chacho";}');
     expect(error).toHaveBeenCalledWith(
       expect.objectContaining({
         name: 'SyntaxError',
@@ -208,9 +211,7 @@ describe('unserialize', () => {
   });
 
   test('unserialize( error reference index )', () => {
-    expect(unserialize('a:2:{i:0;s:6:"chacho";i:1;r:3;}', true)).toEqual(
-      'a:2:{i:0;s:6:"chacho";i:1;r:3;}',
-    );
+    expect(unserialize('a:2:{i:0;s:6:"chacho";i:1;r:3;}', true)).toEqual('a:2:{i:0;s:6:"chacho";i:1;r:3;}');
     expect(error).toHaveBeenCalledWith(
       expect.objectContaining({
         name: 'RangeError',
@@ -221,9 +222,7 @@ describe('unserialize', () => {
   });
 
   test('unserialize( error reference )', () => {
-    expect(unserialize('a:2:{i:0;s:6:"chacho";i:1;r:abc;}', true)).toEqual(
-      'a:2:{i:0;s:6:"chacho";i:1;r:abc;}',
-    );
+    expect(unserialize('a:2:{i:0;s:6:"chacho";i:1;r:abc;}', true)).toEqual('a:2:{i:0;s:6:"chacho";i:1;r:abc;}');
     expect(error).toHaveBeenCalledWith(
       expect.objectContaining({
         name: 'SyntaxError',
