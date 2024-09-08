@@ -1,8 +1,8 @@
 # Oro Php Locutus
 
-* [Overview](#overview)
-* [Installation](#installation)
-* [Methods](#methods)
+- [Overview](#overview)
+- [Installation](#installation)
+- [Methods](#methods)
 
 ## Overview
 
@@ -24,16 +24,17 @@ npm install oro-php-locutus
 
 <hr>
 
-* [serialize()](#serialize)
-* [unserialize()](#unserialize)
-* [htmlspecialchars()](#htmlspecialchars)
-* [utf8Encode()](#utf8encode)
-* [utf8Decode()](#utf8decode)
-* [md5()](#md5)
+- [serialize()](#serialize)
+- [unserialize()](#unserialize)
+- [htmlspecialchars()](#htmlspecialchars)
+- [utf8Encode()](#utf8encode)
+- [utf8Decode()](#utf8decode)
+- [md5()](#md5)
 
 <hr>
 
 ### serialize()
+
 ```ts
 serialize( mixedValue: any ): string
 ```
@@ -57,6 +58,7 @@ serialize( [ 'chacho', '', true, false, 1, 2.3 ] );
 <hr>
 
 ### unserialize()
+
 ```ts
 unserialize( str: string ): string
 ```
@@ -80,6 +82,7 @@ unserialize( 'a:6:{i:0;s:6:"chacho";i:1;s:0:"";i:2;b:1;i:3;b:0;i:4;i:1;i:5;d:2.3
 <hr>
 
 ### htmlspecialchars()
+
 ```ts
 htmlspecialchars(
   string: string,
@@ -113,6 +116,7 @@ htmlspecialchars( '<a href="test">Test</a>', 'ENT_QUOTES' );
 <hr>
 
 ### utf8Encode()
+
 ```ts
 utf8Encode( str: string ): string
 ```
@@ -136,6 +140,7 @@ utf8Encode( 'cañón' );
 <hr>
 
 ### utf8Decode()
+
 ```ts
 utf8Decode( str: string ): string
 ```
@@ -159,6 +164,7 @@ utf8Decode( 'caÃ±Ã³n' );
 <hr>
 
 ### md5()
+
 ```ts
 md5( str: string ): string
 ```

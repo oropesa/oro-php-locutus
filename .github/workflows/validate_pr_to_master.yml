@@ -9,44 +9,44 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout Code"
+      - name: 'Checkout Code'
         uses: actions/checkout@v4
 
-      - name: "Install Node.js and jq"
+      - name: 'Install Node.js and jq'
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: "Install Dependencies"
+      - name: 'Install Dependencies'
         run: npm ci
 
-      - name: "Run Build"
+      - name: 'Run Build'
         run: npm run build
 
-      - name: "Run Linter"
+      - name: 'Run Linter'
         run: npm run lint
 
-      - name: "Run Tests"
+      - name: 'Run Tests'
         run: npm run test
 
   project_version:
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout Code"
+      - name: 'Checkout Code'
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: "Install Node.js and jq"
+      - name: 'Install Node.js and jq'
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: "Get Version from package.json"
+      - name: 'Get Version from package.json'
         id: get_version
         run: echo "version=$(jq -r .version ./package.json)" >> $GITHUB_OUTPUT
 
-      - name: "Check if Tag Exists"
+      - name: 'Check if Tag Exists'
         run: |
           if [ $(git tag -l "v${{ steps.get_version.outputs.version }}") ]; then
             echo "::error::Tag v${{ steps.get_version.outputs.version }} already exists." && exit 1

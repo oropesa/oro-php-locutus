@@ -48,8 +48,6 @@ describe('serialize', () => {
   });
 
   test('serialize( obj-arr-obj )', () => {
-    expect(serialize({ chacho: [{ tio: 17 }] })).toBe(
-      'a:1:{s:6:"chacho";a:1:{i:0;a:1:{s:3:"tio";i:17;}}}',
-    );
+    expect(serialize({ chacho: [{ tio: 17 }] })).toBe('a:1:{s:6:"chacho";a:1:{i:0;a:1:{s:3:"tio";i:17;}}}');
   });
 });
