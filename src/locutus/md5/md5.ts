@@ -23,7 +23,7 @@ export function md5(string: string) {
 
   let hash;
   try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    // eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module
     const crypto = require('node:crypto');
     const md5sum = crypto.createHash('md5');
     md5sum.update(string);
