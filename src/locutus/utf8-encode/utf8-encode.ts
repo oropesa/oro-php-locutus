@@ -37,6 +37,7 @@ export function utf8Encode(string: string) {
       end++;
     } else if (c1 > 127 && c1 < 2048) {
       enc = String.fromCharCode((c1 >> 6) | 192, (c1 & 63) | 128);
+      // eslint-disable-next-line unicorn/no-negated-condition
     } else if ((c1 & 0xf8_00) !== 0xd8_00) {
       enc = String.fromCharCode((c1 >> 12) | 224, ((c1 >> 6) & 63) | 128, (c1 & 63) | 128);
     } else {
