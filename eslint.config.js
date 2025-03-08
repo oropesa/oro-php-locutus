@@ -8,7 +8,7 @@ import {
   setEslintPluginUnicorn,
 } from './eslint.config.utils.js';
 
-const allowList = ['tmp', 'optTemp', 'strData', 'tmpArr'];
+const allowList = ['tmp', 'utils', 'optTemp', 'strData', 'tmpArr'];
 
 export default [
   { ignores: DEFAULT_IGNORES },
