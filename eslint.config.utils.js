@@ -34,6 +34,7 @@ export function setEslintPluginUnicorn({ rules, allowList } = {}) {
     rules: {
       ...eslintPluginUnicorn.configs['flat/recommended'].rules,
       'unicorn/switch-case-braces': ['error', 'avoid'],
+      'unicorn/prefer-logical-operator-over-ternary': 'off',
       'unicorn/prefer-string-replace-all': 'off',
       'unicorn/no-nested-ternary': 'off',
       'unicorn/no-array-reduce': 'off',
