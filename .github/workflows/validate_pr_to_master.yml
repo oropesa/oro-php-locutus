@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout Code'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: 'Install Node.js and jq'
+      - name: 'Install Node.js'
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
 
       - name: 'Install Dependencies'
         run: npm ci
@@ -33,20 +33,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout Code'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: 'Install Node.js and jq'
+      - name: 'Install Node.js'
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
 
       - name: 'Get Version from package.json'
         id: get_version
         run: echo "version=$(jq -r .version ./package.json)" >> $GITHUB_OUTPUT
 
-      - name: 'Check if Tag Exists'
+      - name: 'Check if Tag exists'
         run: |
           if [ $(git tag -l "v${{ steps.get_version.outputs.version }}") ]; then
             echo "::error::Tag v${{ steps.get_version.outputs.version }} already exists." && exit 1
