@@ -1,3 +1,26 @@
+## 2.1.7 / 2025-10-21
+- Add `update-deps.js` script.
+- Update _github-workflows_ with `actions/checkout@v5` and `node-version: 22`.
+- Update _dev_ libs:
+  - `@babel/core` from `v7.26.9` to `v7.28.4`.
+  - `@babel/preset-env` from `v7.26.9` to `v7.28.3`.
+  - `@babel/preset-typescript` from `v7.26.0` to `v7.27.1`.
+  - `@eslint/js` from `v9.22.0` to `v9.38.0`.
+  - `@types/jest` from `v29.5.14` to `v30.0.0`.
+  - `babel-jest` from `v29.7.0` to `v30.2.0`.
+  - `eslint` from `v9.22.0` to `v9.38.0`.
+  - `eslint-config-prettier` from `v10.1.1` to `v10.1.8`.
+  - `eslint-plugin-jest` from `v28.11.0` to `v29.0.1`.
+  - `eslint-plugin-prettier` from `v5.2.3` to `v5.5.4`.
+  - `eslint-plugin-unicorn` from `v57.0.0` to `v61.0.2`.
+  - `globals` from `v16.0.0` to `v16.4.0`.
+  - `jest` from `v29.7.0` to `v30.2.0`.
+  - `nodemon` from `v3.1.9` to `v3.1.10`.
+  - `prettier` from `v3.5.3` to `v3.6.2`.
+  - `tsup` from `v8.4.0` to `v8.5.0`.
+  - `typescript` from `v5.8.2` to `v5.9.3`.
+  - `typescript-eslint` from `v8.26.0` to `v8.46.2`.
+
 ## 2.1.6 / 2025-03-08
 - Reset `package-lock.json`.
 - Enhance `tsconfig.json`.

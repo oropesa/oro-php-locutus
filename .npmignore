@@ -18,3 +18,4 @@ nodemon.json
 tsconfig.json
 tsup.config.ts
 tmp.js
+update-deps.js
