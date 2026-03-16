@@ -3,8 +3,7 @@ import fs from 'node:fs';
 
 function exec(command) {
   return new Promise((resolve, reject) => {
-    const [instruction, ...args] = command.trim().split(' ');
-    const child = spawn(instruction, args, { shell: true, stdio: 'inherit' });
+    const child = spawn(command, { shell: true, stdio: 'inherit' });
     child.on('close', (code) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       code === 0 ? resolve() : reject(new Error(`exec failed with exit code ${code}. \ncommand: "${command}"`));
@@ -12,9 +11,26 @@ function exec(command) {
   });
 }
 
+function getDepsFromArgs(args) {
+  const customDeps = {};
+  for (const dependency of args) {
+    const atIndex = dependency.lastIndexOf('@');
+    if ([-1, 0].includes(atIndex)) continue;
+
+    customDeps[dependency.slice(0, atIndex)] = dependency.slice(atIndex + 1);
+  }
+  return customDeps;
+}
+
 // eslint-disable-next-line unicorn/prefer-top-level-await
 (async () => {
+  console.log('❇️ Node version');
+  await exec('node -v');
+  console.log('');
   console.log('ℹ️ SCRIPT START');
+
+  const customDeps = getDepsFromArgs(process.argv.slice(2));
+  console.log(`📟 Target packages: ${JSON.stringify(customDeps)}`);
 
   //
 
@@ -32,13 +48,13 @@ function exec(command) {
   console.log('');
 
   if (deps.length > 0) {
-    const command = `npm i ${deps.map((name) => `${name}@latest`).join(' ')}`;
+    const command = `npm i ${deps.map((name) => (customDeps[name] ? `${name}@${customDeps[name]}` : `${name}@latest`)).join(' ')}`;
     console.log(`📟 exec "${command}"`);
     await exec(command);
   }
 
   if (devDeps.length > 0) {
-    const command = `npm i -D ${devDeps.map((name) => `${name}@latest`).join(' ')}`;
+    const command = `npm i -D ${devDeps.map((name) => (customDeps[name] ? `${name}@${customDeps[name]}` : `${name}@latest`)).join(' ')}`;
     console.log(`📟 exec "${command}"`);
     await exec(command);
   }
