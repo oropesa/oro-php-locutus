@@ -13,8 +13,16 @@ export const DEFAULT_IGNORES = ['coverage/*', 'dist/*', 'tmp.js', '**/*.test.js'
 
 //
 
-export function setEslintLanguageOptionsBrowser() {
-  return { languageOptions: { globals: globals.browser } };
+export function setEslintLanguageOptionsProject(browserOrNode = 'browser') {
+  return browserOrNode === 'browser'
+    ? { languageOptions: { globals: globals.browser } }
+    : browserOrNode === 'node'
+      ? { languageOptions: { globals: globals.node } }
+      : {};
+}
+
+export function setEslintLanguageOptionsRootAsNode() {
+  return { files: ['./*.js'], languageOptions: { globals: globals.node } };
 }
 
 //
